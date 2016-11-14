@@ -101,10 +101,7 @@ class TestShaApiBottle(unittest.TestCase):
 
         # Branch 4: When environment variable specifies config file it is properly loaded.
 
-        with patch.dict(u'sha_api.mybottle.sha_api_bottle.os.environ',
-                        values=self.os_environ) as os_environ:
-            self.assertTrue(sha_api.mybottle.sha_api_bottle.os.environ is os_environ)
-
+        with patch.dict(u'sha_api.mybottle.sha_api_bottle.os.environ', values=self.os_environ):
             self.assertEqual(self.os_environ[u'SHA_API_CONFIG'],
                              sha_api.mybottle.sha_api_bottle.os.environ.get(u'SHA_API_CONFIG'))
 

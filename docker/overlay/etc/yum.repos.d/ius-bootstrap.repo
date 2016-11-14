@@ -1,0 +1,6 @@
+[ius-bootstrap]
+name=IUS Community Packages for Enterprise Linux 7 - $basearch
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos7&arch=$basearch&protocol=http
+failovermethod=priority
+enabled=0
+gpgcheck=0

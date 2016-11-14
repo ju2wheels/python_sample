@@ -39,7 +39,7 @@ def main(): # pragma: no cover
     bottle.run( # pylint: disable=no-member
         app,
         debug=global_config(app.config, u'sha_api', u'debug', True),
-        host=global_config(app.config, u'sha_api', u'host', u'localhost'),
+        host=global_config(app.config, u'sha_api', u'host', u'0.0.0.0'),
         port=global_config(app.config, u'sha_api', u'port', 8080),
         server=global_config(app.config, u'sha_api', u'server', u'wsgiref')
     )
