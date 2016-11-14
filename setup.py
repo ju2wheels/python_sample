@@ -87,7 +87,7 @@ setup( # pylint: disable=star-args
         'setuptools'
     ],
     license='Proprietary',
-    long_description='A JSON REST API that stores messages by their SHA256 digest',
+    long_description=read_file('README.md'),
     keywords='rest api json sha sha256 shasum bottle sqlite',
     maintainer='Julio Lajara',
     maintainer_email='julio.lajara@alum.rpi.edu',
