@@ -1,9 +1,11 @@
 *~
 *.pyc
 .coverage
+.eggs
 /build/
 /cover/
-/data/
+/data/*.db
+/data/var
 /dist/
 /python/cover/
 /python/*egg-info/

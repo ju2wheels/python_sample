@@ -1,8 +1,16 @@
 #!/bin/bash
 
-install -d -m755 /data/etc/sha_api > /dev/null 2>&1
 install -d -m755 /data/var/log > /dev/null 2>&1
 
-chmod 644 /data/etc/sha_api/* /data/var/log/* > /dev/null 2>&1
+chmod 755 /data/etc/ > /dev/null 2>&1
+chmod 755 /data/etc/sha_api > /dev/null 2>&1
+chmod 755 /data/var/ > /dev/null 2>&1
+chmod 755 /data/var/log > /dev/null 2>&1
+
+chmod 644 /data/etc/nginx/* > /dev/null 2>&1
+chmod 644 /data/etc/sha_api/* > /dev/null 2>&1
+chmod 644 /data/var/log/* > /dev/null 2>&1
+
+cp /data/etc/nginx/* /etc/nginx/ > /dev/null 2>&1
 
 exec /usr/bin/supervisord --nodaemon

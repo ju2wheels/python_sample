@@ -2,6 +2,10 @@ version: '2'
 services:
   sha_api:
     build: ./
+    hostname: sha_api.local
     image: sha_api
     ports:
+      - "443:443"
       - "8080:8080"
+    volumes:
+      - ./data:/data
