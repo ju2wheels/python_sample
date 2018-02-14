@@ -10,6 +10,7 @@ Python specific packaging details can be found here:
 |[setuptools](http://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files)|Python `setuptools` documentation.                                           |
 |[pkg_resources](http://setuptools.readthedocs.io/en/latest/pkg_resources.html)                                  |Python `pkg_resources` documentation for finding and using package resources.|
 |[setup.py setuptools template](https://gist.github.com/ju2wheels/0c52e997b513a4b4c5bd)                          |Python `setuptools` template with comments.                                  |
+|[nose](http://nose.readthedocs.io/en/latest/testing.html)                                                       |Python `nose` unit testing documentation.                                    |
 
 If you are test running the included code, please note that you may have to regenerate the self signed HTTPS cert included in the Docker image in order to get the HTTPS to work.
 
