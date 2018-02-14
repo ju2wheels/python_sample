@@ -1,6 +1,20 @@
 # sha_api
 ---
 
+This project was created as an interview sample project. It highlights combining `Docker` with `Python` unit testing using `nose` and `mock` and packaging with `setuptools`.
+
+Python specific packaging details can be found here:
+
+|Resource                                                                                                        |Description                                                                  |
+|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+|[setuptools](http://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files)|Python `setuptools` documentation.                                           |
+|[pkg_resources](http://setuptools.readthedocs.io/en/latest/pkg_resources.html)                                  |Python `pkg_resources` documentation for finding and using package resources.|
+|[setup.py setuptools template](https://gist.github.com/ju2wheels/0c52e997b513a4b4c5bd)                          |Python `setuptools` template with comments.                                  |
+
+If you are test running the included code, please note that you may have to regenerate the self signed HTTPS cert included in the Docker image in order to get the HTTPS to work.
+
+---
+
 `sha_api` is a REST API using `bottle` that stores messages based on their `SHA256` digest and allows easy retrieval.
 
 ## Supported Python versions and Platforms
@@ -109,4 +123,4 @@ $ curl -k -v https://localhost/messages/badshasum
 1. How would your implementation scale if this were a high throughput service?
     > My current implementation has a few short comings. The `sha_apid` REST API service is using the default `wsgiref` web server which does not support true threading and will therefor limit response handling. This example also uses `sqlite` as the backend instead of a more production oriented db like `PostgreSQL`, and as such the db wrapper is very plain and opens/closes the db connection after each endpoint request. I bundled `nginx` with the backend REST API for demonstration purposes but in general these should be separate. 
 2. How could you improve that?
-    > To resolve the resquest processing throughput, the `wsgiref` web server would need to be replaced by a proper threading web front end for the REST API. The database shim that `bottle` uses would need to be replaced by one for a more production ready database, and preferrably it would support connection pooling so that the `sha_apid` can maintain a pool of connections and allow each threaded request to quickly get a db handle as necessary. For the `nginx` SSL reverse proxy, this should be removed from the backend REST API container and be placed as close to the requester as possible versus closer to the REST API as it is now. By moving `nginx` to the beginning or the request change it can be placed in front of a round robin `sha_ap` instances to process requests.
+    > To resolve the resquest processing throughput, the `wsgiref` web server would need to be replaced by a proper threading web front end for the REST API. The database shim that `bottle` uses would need to be replaced by one for a more production ready database, and preferrably it would support connection pooling so that the `sha_apid` can maintain a pool of connections and allow each threaded request to quickly get a db handle as necessary. For the `nginx` SSL reverse proxy, this should be removed from the backend REST API container and be placed as close to the requester as possible versus closer to the REST API as it is now. By moving `nginx` to the beginning or the request change it can be placed in front of a round robin `sha_api` instances to process requests.
